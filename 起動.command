@@ -3,6 +3,10 @@
 # Finder でこのファイルをダブルクリックすると、ブラウザUIが立ち上がります。
 cd "$(dirname "$0")"
 export PATH="$HOME/.local/bin:$PATH"
+# 環境は Drive の外（~/venvs/irodori-tts）。Drive 上の .venv は 2026-11-10 に廃止
+export UV_PROJECT_ENVIRONMENT="$HOME/venvs/irodori-tts"
+# モデルは ~/.cache/huggingface にある。付けないと更新確認で固まる
+export HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1
 
 echo "Irodori-TTS (VoiceDesign) を起動します..."
 echo "起動後、自動でブラウザが開きます。開かない場合は手動で http://localhost:7861 へアクセスしてください。"
